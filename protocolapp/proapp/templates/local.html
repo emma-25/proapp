@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local</title>
+</head>
+<body>
+    
+    <h1>Ingrese los siguientes datos</h1>
+
+    <form method="POST" action="{% url 'local' %}">
+
+        {% csrf_token %}
+        {{form}}
+        
+        <label for="Nombre Local">Nombre Local</label>
+        <input type="text" placeholder="Nombre Local">
+        <label for="Direccion">Direccion</label>
+        <input type="text" placeholder="Direccion">
+        <label for="Nombre Responsable">Nombre Responsable</label>
+        <input type="text" placeholder="Nombre Responsable">
+        <label for="Turno">Turno</label>
+        <input type="time" placeholder="Turno">
+        <label for="Estancia">Estancia</label>
+        <input type="text" placeholder="Estancia">
+        <input type="submit" value="Registrar">
+    </form>
+</body>
+</html>

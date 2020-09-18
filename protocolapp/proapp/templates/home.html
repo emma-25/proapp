@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+
+    <h1>Avisos</h1>
+
+ <li><a href=”#”>Inicio</a></li>
+ <li><a href=”#”>Sobre nosotros</a></li>
+ <li><a href=”#”>Acerca del Covid-19</a></li>
+ <li><a href=”#”>Cuidados</a></li>
+ </ul>
+ <h1></h1>
+    <form method="POST" action="{% url 'alertar' %}">
+        {% csrf_token %}
+        {{form}}
+        
+        <input type="submit" value="Soy Positivo">
+        <ul class="horizontal">
+    </form>
+    
+            <form method="POST" action="{% url 'regnegocio' %}">
+            {%csrf_token%}
+            {{form}}
+            <input type="submit" value="Imprimir QR Local">
+            </form>
+</body>
+</html>
