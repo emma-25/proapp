@@ -1,5 +1,5 @@
 from django.contrib import admin
-from proapp.models import Visitas,Positivo, Negocio
+from proapp.models import *
 # Register your models here.
 
 
