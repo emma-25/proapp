@@ -16,8 +16,9 @@ class Negocio(models.Model):
 
 class Visitas (models.Model): 
 	celular = models.DecimalField(max_digits= 20,decimal_places=0,default=1)
-	fecha_visita = models.DateField(auto_now=True)
+	fecha_visita = models.DateTimeField(auto_now_add=True, editable=False)
 	negocio = models.ForeignKey(Negocio, on_delete=models.PROTECT,default=1)
+	empleado = models.BooleanField(default=False)
 
 	def __str__(self):
 		return f'{self.celular}-{self.fecha_visita}'
@@ -31,10 +32,21 @@ class Positivo(models.Model):
 	def __str__(self):
 		return f'{self.celular}'
 
-class Aviso(models.Model):
+class Alerta(models.Model):
 	negocio = models.ForeignKey(Negocio, on_delete= models.CASCADE)
-	visitante = models.ForeignKey(Positivo, on_delete= models.PROTECT)
+	positivo = models.ForeignKey(Positivo, on_delete= models.PROTECT)
 	fecha = models.DateField(auto_now=True)
+	
+	def __str__(self):
+		return f'En {self.negocio} concurrió {self.positivo}'
+	
+class Cercano(models.Model):
+	aviso = models.ForeignKey(Alerta, on_delete= models.CASCADE)
+	tel_cercano = models.DecimalField(max_digits=20,decimal_places=0)
+	avisado = models.BooleanField(default=False)	
+	
+	def __str__(self):
+		return f'La persona {self.tel_cercano} estuvo en contacto con {self.aviso.positivo}'
 
 
 
