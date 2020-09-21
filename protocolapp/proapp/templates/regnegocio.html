@@ -6,11 +6,15 @@
     <title>Registrar Negocio</title>
 </head>
 <body>
+    {% if user.is_authenticated %}
+
     <h1>Ingrese los siguientes datos</h1>
     <form method="POST" action="{% url 'regnegocio' %}">   
         {% csrf_token %}
         {{form}}
         <input type="submit" value="Continuar">
     </form>
+
+    {% endif %}
 </body>
 </html>
