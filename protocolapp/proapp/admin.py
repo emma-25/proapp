@@ -4,24 +4,24 @@ from proapp.models import *
 
 
 class VisitasAdmin(admin.ModelAdmin):
-	pass
+    pass
 
 class PositivoAdmin(admin.ModelAdmin):
-	pass
+    pass
 
 class NegocioAdmin(admin.ModelAdmin):
-	pass
+    pass
 
 class AlertaAdmin(admin.ModelAdmin):
-	pass
+    pass
 
 class CercanoAdmin(admin.ModelAdmin):
-	pass
+    pass
 
 
 
 admin.site.register(Positivo,PositivoAdmin)
 admin.site.register(Visitas, VisitasAdmin)
 admin.site.register(Negocio, NegocioAdmin)
-admin.site.register(Alerta, AlertaoAdmin)
-admin.site.register(Cercano,CercanoAdmin)
+admin.site.register(Alerta, AlertaAdmin)
+admin.site.register(Cercano, CercanoAdmin)

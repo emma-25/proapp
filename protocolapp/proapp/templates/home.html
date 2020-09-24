@@ -6,16 +6,25 @@
     <title>Home</title>
 </head>
 <body>
-
-    <h1>Avisos</h1>
-
+    <h1>Avisos para: {{request.user.username}}</h1>
+    
+    <hr>
+    {% for resultado in resultados %}
+        <a href="{% url 'cercanos' resultado.id %}">{{resultado}}</a>
+        <br>
+    {% endfor %}
+    {% if user.is_authenticated %}
+    <hr>
+    {% endif %}
  <li><a href=”#”>Inicio</a></li>
  <li><a href=”#”>Sobre nosotros</a></li>
  <li><a href=”#”>Acerca del Covid-19</a></li>
  <li><a href=”#”>Cuidados</a></li>
  </ul>
  <h1></h1>
+
     <a href="{% url 'alertar' %}">Soy Positivo</a>
     <a href="{% url 'regnegocio' %}">Registrar Local</a>
+    
 </body>
 </html>

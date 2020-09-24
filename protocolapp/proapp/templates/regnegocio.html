@@ -9,6 +9,7 @@
     {% if user.is_authenticated %}
 
     <h1>Ingrese los siguientes datos</h1>
+    <p>Este negocio será registrado a nombre de: {{user.username}}</p>
     <form method="POST" action="{% url 'regnegocio' %}">   
         {% csrf_token %}
         {{form}}

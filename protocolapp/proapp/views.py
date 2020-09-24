@@ -8,7 +8,7 @@ from datetime import timedelta
 
 # Create your views here.
 def index(request):
-	return render (request,'index.html', {'proapp':Positivo.objects.all()})
+    return render (request,'index.html')
 
 
 def alertar(request):
@@ -30,7 +30,7 @@ def alertar(request):
             return redirect('index')
     else:
         form = PositivoForm()
-        return render(request, 'alertar.html',{'form':form})
+    return render(request, 'alertar.html',{'form':form})
 
 
 def registrarUsuario(request):
@@ -45,39 +45,55 @@ def registrarUsuario(request):
             return redirect('login')    
     else:
         form = UserCreationForm()
-        return render(request, 'registration/register.html', {'form':form})
+    return render(request,'registration/register.html', {'form':form})
 
 
 def home(request):
-	return render(request, 'home.html')
+    if request.user.is_authenticated: 
+        negocio = Negocio.objects.filter(usuario=request.user)
+        resultados = Alerta.objects.filter(negocio__in=negocio)
+        return render(request, 'home.html',{"negocio":negocio,"resultados":resultados})    
+    else:
+        return render(request, 'home.html')
 
 def local(request):
-	return render(request, 'local.html')
+    return render(request, 'local.html')
     
 
-def filtrar(request):
-	p = Positivo.objects.first()
-	riesgo = Visitas.objects.filter(fecha_visita__gte=p.fecha_test)
-	return render(request, 'filtrar.html',{'riesgo':riesgo})
+#def filtrar(request):
+#    p = Positivo.objects.first()
+#    riesgo = Visitas.objects.filter(fecha_visita__lte=p.fecha_test)
+#    return render(request, 'filtrar.html',{'riesgo':riesgo})
 
 
 def visitas(request):
-	if request.method == 'POST':
-		form = VisitaForm(request.POST)
-		if form.is_valid():
-			proapp = form.save()
-			return redirect('index')
-	else:
-		form = VisitaForm()
-		return render(request, 'visita.html',{'form':form}) 
+    if request.method == 'POST':
+        form = VisitaForm(request.POST)
+        if form.is_valid():
+            proapp = form.save()
+            return redirect('index')
+    else:
+        form = VisitaForm()
+        return render(request, 'visita.html',{'form':form}) 
 
 
 def negocio(request):
-	if request.method == 'POST':
-		form = NegocioForm(request.POST)
-		if form.is_valid():
-			proapp = form.save()
-			return redirect('home')
-	else:
-		form = NegocioForm()
-		return render(request, 'regnegocio.html',{'form':form})
+    if request.method == 'POST':
+        form = NegocioForm(request.POST)
+        if form.is_valid():
+            proapp = form.save(commit=False)
+            proapp.usuario = request.user
+            try:
+                proapp.save()
+            except:
+                return render()###template de errores
+            return redirect('home')
+    else:
+        form = NegocioForm()
+        return render(request, 'regnegocio.html',{'form':form}) 
+
+
+def verCercano(request,pk):
+    cercanos = Cercano.objects.filter(aviso=pk)
+    return render(request, 'cercanos.html',{'cercanos':cercanos})
+    
