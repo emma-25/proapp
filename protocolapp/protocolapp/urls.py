@@ -24,9 +24,8 @@ urlpatterns = [
     path('registrarse/', views.registrarUsuario, name ="register"),
     path('alertar/', views.alertar, name='alertar'),
     path('home/',views.home, name = 'home'),
-    path('local/',views.local, name = 'local'),
-    #path('filtrar/',views.filtrar, name = 'filtrar'),
     path('visita/',views.visitas, name = 'visita'),
     path('regnegocio/', views.negocio, name = 'regnegocio'),
-    path('cercanos/<int:pk>', views.verCercano, name = 'cercanos')
+    path('cercanos/<int:pk>', views.verCercano, name = 'cercanos'),
+    path('verQR/', views.verQR, name = 'verQR')
 ]

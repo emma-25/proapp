@@ -6,6 +6,8 @@ from proapp.forms import PositivoForm, VisitaForm, NegocioForm
 from datetime import timedelta
 
 
+
+
 # Create your views here.
 def index(request):
     return render (request,'index.html')
@@ -56,15 +58,6 @@ def home(request):
     else:
         return render(request, 'home.html')
 
-def local(request):
-    return render(request, 'local.html')
-    
-
-#def filtrar(request):
-#    p = Positivo.objects.first()
-#    riesgo = Visitas.objects.filter(fecha_visita__lte=p.fecha_test)
-#    return render(request, 'filtrar.html',{'riesgo':riesgo})
-
 
 def visitas(request):
     if request.method == 'POST':
@@ -86,7 +79,7 @@ def negocio(request):
             try:
                 proapp.save()
             except:
-                return render()###template de errores
+                return render(request, 'error.html')###template de errores
             return redirect('home')
     else:
         form = NegocioForm()
@@ -96,4 +89,9 @@ def negocio(request):
 def verCercano(request,pk):
     cercanos = Cercano.objects.filter(aviso=pk)
     return render(request, 'cercanos.html',{'cercanos':cercanos})
+
+def verQR(request):
+    negocio = Negocio.objects.filter(usuario=request.user)
+    direccion = Negocio.objects.filter(direccion__in=negocio)
+    return render(request, 'verQR.html',{"negocio":negocio})#"direccion":direccion})
     

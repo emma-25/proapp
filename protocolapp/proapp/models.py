@@ -11,8 +11,9 @@ class Negocio(models.Model):
 	estancia = models.DecimalField(max_digits=25,decimal_places=0, default=30)
 	turno = models.DecimalField(max_digits=25,decimal_places=0, default=6)
 
-	def __str__(self):
+	def __repr__(self):
 		return f'{self.nombre_local}'
+	
 
 class Visitas (models.Model): 
 	celular = models.DecimalField(max_digits= 20,decimal_places=0,default=1)
@@ -53,27 +54,3 @@ class Cercano(models.Model):
 
 
 
-
-
-
-
-
-
-
-
-
-
-#TIME_CHOICES = ( 
-#    ("H", "HORAS"), 
-#    ("M", "MINUTOS"), 
-#	)
-
-
-#
-
-#class Negocio(models.Model): 
-#	perma_um = models.CharField( 
-#		max_length = 7, 
-#		choices = TIME_CHOICES, 
-#		default = 'm'
-#		) 
