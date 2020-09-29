@@ -4,6 +4,110 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="{% url 'index' %}">Protocolapp</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" 
+          data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
+          aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link disabled" href="{% url 'logout' %}">Cerrar Sesión</a>
+      </li>
+    </ul>
+    </form>
+  </div>
+</nav>
+
+    <h1>Avisos para: {{request.user.username}}</h1>
+    <hr>
+    {% for resultado in resultados %}
+        <a href="{% url 'cercanos' resultado.id %}">{{resultado}}</a>
+        <br>
+    {% endfor %}
+    <hr>
+<!--    {% if user.is_authenticated %}
+
+    <hr>
+    {{negocio.nombre_local}}
+
+    <hr>
+    {% endif %}
+-->
+<div class="container-fluid">
+    <a href="{% url 'alertar' %}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Soy Positivo</a>
+    <a href="{% url 'regnegocio' %}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Registrar Local</a>
+    <a href="{% url 'verQR' %}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Ver QR</a>
+</div>
+
+    
+
+
+
+
+    <style>
+      body{
+        background: #F4D570;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #EAE9EB, #F4D570);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #EAE9EB, #F4D570);
+      }
+      h1{
+        background: #F4D570;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #F4D570, #EAE9EB);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #F4D570, #EAE9EB);
+      }
+      a{
+        padding: 10px;
+      }
+      #footer {
+        text-align: center;
+      background-color: #05060e;
+      position: absolute;
+      display: inline-block;
+      bottom: 0;
+      width: 100%;
+      height: 40px;
+      color: white;
+    }
+    </style>
+    </style>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+<div id="footer">
+    <footer>
+        <p>Informatorio Chaco 2020</p>
+    </footer>
+</div>
+
+</body>
+</html>
+
+<!--<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
 </head>
 <body>
     <h1>Avisos para: {{request.user.username}}</h1>
@@ -30,3 +134,4 @@
     <a href="{% url 'verQR' %}">verQR</a>
 </body>
 </html>
+-->

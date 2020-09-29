@@ -11,7 +11,7 @@ class Negocio(models.Model):
 	estancia = models.DecimalField(max_digits=25,decimal_places=0, default=30)
 	turno = models.DecimalField(max_digits=25,decimal_places=0, default=6)
 
-	def __repr__(self):
+	def __str__(self):
 		return f'{self.nombre_local}'
 	
 
@@ -40,7 +40,7 @@ class Alerta(models.Model):
 	fecha = models.DateField(auto_now=True)
 
 	def __str__(self):
-		return f'En {self.negocio} concurrió {self.positivo}'
+		return f'En {self.negocio} concurrió un COVID-Positivo'
 
 
 
@@ -50,7 +50,7 @@ class Cercano(models.Model):
 	avisado = models.BooleanField(default=False)
 
 	def __str__(self):
-		return f'La persona {self.tel_cercano} estuvo en contacto con {self.aviso.positivo}'
+		return f'El cliente {self.tel_cercano} estuvo en contacto con un COVID-Positivo'
 
 
 

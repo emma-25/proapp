@@ -10,7 +10,7 @@ class PositivoForm (ModelForm):
 class VisitaForm (ModelForm):
     class Meta:
         model = Visitas
-        fields = ('celular','negocio','empleado')
+        fields = ('celular','negocio')
 
 
 class NegocioForm(ModelForm):

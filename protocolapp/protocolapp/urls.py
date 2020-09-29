@@ -27,5 +27,6 @@ urlpatterns = [
     path('visita/',views.visitas, name = 'visita'),
     path('regnegocio/', views.negocio, name = 'regnegocio'),
     path('cercanos/<int:pk>', views.verCercano, name = 'cercanos'),
-    path('verQR/', views.verQR, name = 'verQR')
+    path('verQR/', views.verQR, name = 'verQR'),
+    path('logout', views.logout, name = 'logout'),
 ]

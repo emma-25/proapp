@@ -1,4 +1,4 @@
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout as do_logout
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from proapp.models import *
@@ -95,3 +95,8 @@ def verQR(request):
     direccion = Negocio.objects.filter(direccion__in=negocio)
     return render(request, 'verQR.html',{"negocio":negocio})#"direccion":direccion})
     
+def logout(request):
+    # Finalizamos la sesión
+    do_logout(request)
+    # Redireccionamos a la portada
+    return redirect('index')
