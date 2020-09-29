@@ -43,25 +43,32 @@
 
     <style>
       body{
-        background: #F4D570;
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #EAE9EB, #F4D570);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #EAE9EB, #F4D570);
+        background: url("{% static 'img/nuevo.jpg' %}");
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
       }
       h1{
         font-family: Roboto;
         text-align: center;
         position: relative; top: 200px;
-        color: black;
+        color: white;
       }
       h2{
-        color: black;
+        color: white;
         text-align: center;
         font-family: Roboto;
         position: relative; top: 210px;
       }
-      #footer {
+      @media only screen and (max-width: 767px) {
+
+    body {
+
+      background-image: url("{% static 'img/nuevomobile.jpg' %}");
+
+}
+    #footer {
         text-align: center;
       background-color: #05060e;
       position: absolute;
