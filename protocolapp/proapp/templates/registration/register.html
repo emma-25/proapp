@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  {%  load static %}
+  <link rel="icon" type="image/png"  href="{% static 'img/favicon.png' %}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title>
@@ -16,7 +18,7 @@
 <body>
 
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="{% url 'index' %}">Protocolapp</a>
+  <a class="navbar-brand" href="{% url 'index' %}">ProtocolApp</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" 
           data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
           aria-expanded="false" aria-label="Toggle navigation">
@@ -28,8 +30,16 @@
       <li class="nav-item active">
         <a class="nav-link" href="{% url 'login' %}">Iniciar Sesión <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'register' %}">Registrarse</a>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
+           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Consejos Covid-19
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="http://bancos.salud.gob.ar/ryc/92">Cuidados generales</a>
+          <a class="dropdown-item" href="https://www.argentina.gob.ar/salud/coronavirus-COVID-19?utm_source=search&utm_medium=cpc&utm_campaign=coronavirus&utm_term=grants&utm_content=nacional&gclid=EAIaIQobChMIlrOE39WO7AIVjIKRCh3thAE2EAAYASAAEgJPmfD_BwE">Todo lo que necesitas saber</a>
+          <div class="dropdown-divider"></div>
+        </div>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{% url 'alertar' %}">Soy Covid Positivo</a>
@@ -104,7 +114,7 @@
 
 <style>
      body{
-      
+
       }
     body,
     html {
@@ -146,10 +156,21 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+
 <div id="footer">
-  <footer>
-      <p>Informatorio Chaco 2020</p>
-  </footer>
+    <footer>
+        <p>© 2020 Copyright: Protocolapp</p>
+    </footer>
 </div>
+
+
 </body>
 </html>
+
+
+<!--
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'register' %}">Registrarse</a>
+      </li>

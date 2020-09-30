@@ -1,99 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    {%  load static %}
+  <link rel="icon" type="image/png"  href="{% static 'img/favicon.png' %}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alertar</title>
-
-    <link  rel="icon"   href="imagenes/favicon.png" type="image/png" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
-
-
-
-
+    <title>Cercanos</title>
 </head>
 <body>
+	<h1>Cominiquese a la brevedad con los siguientes contactos</h1>
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="{% url 'index' %}">Protocolapp</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" 
-          data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
-          aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
-      </li>
-      
-    </ul>
-    </form>
-  </div>
-</nav>
 
-<div>
     {% for cercano in cercanos %}
     <p>{{cercano}}</p>
-    <a href="https://api.whatsapp.com/send?phone=543735543173&text=Hola,%20usted%20estuvo%20en%20contacto%20con%20un%20COVID-19">Enviar Mensaje</a>
-    <hr>
     {% endfor %}
-</div>
-
-    
-
-  <style>
-    body,
-    html {
-      margin: 0;
-      padding: 0;
-      height: 90%;
-    }
-    .user_card {
-      height: 400px;
-      width: 350px;
-      margin-top: auto;
-      margin-bottom: auto;
-      position: relative;
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      padding: 10px;
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-      -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-      -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-      border-radius: 5px;
-
-    }
-    
-    #footer {
-        text-align: center;
-      background-color: #05060e;
-      position: absolute;
-      display: inline-block;
-      bottom: 0;
-      width: 100%;
-      height: 40px;
-      color: white;
-    }
-    h1{
-      text-align: center;
-    }
 
 
-  </style>
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-<div id="footer">
-    <footer>
-        <p>Informatorio Chaco 2020</p>
-    </footer>
-</div>
-
+    <style>
+    	body{
+    		text-align: center;
+    	}
+    </style>
 </body>
 </html>

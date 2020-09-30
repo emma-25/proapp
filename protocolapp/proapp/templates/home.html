@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+  {%  load static %}
+  <link rel="icon" type="image/png"  href="{% static 'img/favicon.png' %}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
@@ -8,7 +10,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="{% url 'index' %}">Protocolapp</a>
+  <a class="navbar-brand" href="{% url 'index' %}">ProtocolApp</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" 
           data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
           aria-expanded="false" aria-label="Toggle navigation">
@@ -18,11 +20,22 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{% url 'alertar' %}">Soy Covid Positivo <span class="sr-only">(current)</span></a>
       </li>
-      
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
+           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Consejos Covid-19
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="http://bancos.salud.gob.ar/ryc/92">Cuidados generales</a>
+          <a class="dropdown-item" href="https://www.argentina.gob.ar/salud/coronavirus-COVID-19?utm_source=search&utm_medium=cpc&utm_campaign=coronavirus&utm_term=grants&utm_content=nacional&gclid=EAIaIQobChMIlrOE39WO7AIVjIKRCh3thAE2EAAYASAAEgJPmfD_BwE">Todo lo que necesitas saber</a>
+          <div class="dropdown-divider"></div>
+        </div>
+      </li>
       <li class="nav-item">
-        <a class="nav-link disabled" href="{% url 'logout' %}">Cerrar Sesión</a>
+        <a class="nav-link disabled" href="{% url 'login' %}">Cerrar Sesión</a>
       </li>
     </ul>
     </form>
@@ -36,16 +49,8 @@
         <br>
     {% endfor %}
     <hr>
-<!--    {% if user.is_authenticated %}
-
-    <hr>
-    {{negocio.nombre_local}}
-
-    <hr>
-    {% endif %}
--->
+    
 <div class="container-fluid">
-    <a href="{% url 'alertar' %}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Soy Positivo</a>
     <a href="{% url 'regnegocio' %}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Registrar Local</a>
     <a href="{% url 'verQR' %}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Ver QR</a>
 </div>
@@ -57,16 +62,23 @@
 
     <style>
       body{
+        background: url("{% static 'img/fondobueno.png' %}");
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
       }
       h1{
-        
+        color: #26a1ab;
+        text-align: center;
+
       }
-      a{
+      a {
         padding: 10px;
       }
       #footer {
         text-align: center;
-      background-color: #05060e;
+      background-color: #343a40;
       position: absolute;
       display: inline-block;
       bottom: 0;
@@ -74,7 +86,8 @@
       height: 40px;
       color: white;
     }
-    </style>
+
+
     </style>
 
 
@@ -86,7 +99,7 @@
 
 <div id="footer">
     <footer>
-        <p>Informatorio Chaco 2020</p>
+        <p>© 2020 Copyright: Protocolapp</p>
     </footer>
 </div>
 
@@ -125,4 +138,13 @@
     <a href="{% url 'verQR' %}">verQR</a>
 </body>
 </html>
+-->
+
+<!--    {% if user.is_authenticated %}
+
+    <hr>
+    {{negocio.nombre_local}}
+
+    <hr>
+    {% endif %}
 -->
