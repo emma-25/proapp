@@ -10,10 +10,12 @@
 <body>
 	<h1>Cominiquese a la brevedad con los siguientes contactos</h1>
 
-
+    <p>Bienvenido</p>
 
     {% for cercano in cercanos %}
-    <p>{{cercano}}</p>
+    <p>{{cercano}}</p>  
+    <a href="https://api.whatsapp.com/send?phone={{tel_cercano}}&text=Hola,%20usted%20estuvo%20en%20contacto%20con%20un%20COVID-19">Enviar Mensaje</a>
+    <hr>
     {% endfor %}
 
 
